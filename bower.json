@@ -1,7 +1,7 @@
 {
   "name": "matrix-layout",
-  "version": "1.0.0",
-  "description": "...",
+  "version": "0.8.0",
+  "description": "A custom element and a style useful to create responsive and fluid grid layouts",
   "main": [
     "matrix-layout.html",
     "matrix-style.html"
