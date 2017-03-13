@@ -1,0 +1,44 @@
+{
+  "name": "matrix-layout",
+  "version": "1.0.0",
+  "description": "...",
+  "main": [
+    "matrix-layout.html",
+    "matrix-style.html"
+  ],
+  "authors": [
+    "Leonardo Di Donato <leodidonato@gmail.com> (http://git.io/leodido)"
+  ],
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/leodido/matrix-layout",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/leodido/matrix-layout.git"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "*.json",
+    "*.lock"
+  ],
+  "dependencies": {
+    "polymer": "polymer/polymer#2.0.0-rc.2"
+  },
+  "devDependencies": {
+    "web-component-tester": "v6.0.0-prerelease.5",
+    "iron-component-page": "polymerelements/iron-component-page#2.0-preview",
+    "iron-demo-helpers": "polymerelements/iron-demo-helpers#2.0-preview"
+  },
+  "keywords": [
+    "web-components",
+    "polymer",
+    "layout",
+    "grid",
+    "grid system",
+    "style",
+    "columns",
+    "responsive",
+    "fluid",
+    "custom element"
+  ]
+}
