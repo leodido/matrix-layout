@@ -1,0 +1,250 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<!--
+This element is an helper style useful for creating responsive, fluid grid layout elements using CSS **custom properties** and **mixins**.
+
+Because custom properties can be defined inside a `@media` rule, you can customize the matrix layout for different **responsive breakpoints**.
+
+Furthermore, since the only assumption it does is that you create a layout to use it, inserting within it some items in the light DOM ...
+
+It is completely decoupled from children elements. It does not impose any constraint on child nodes.
+
+So, you can use any element you want as child item.
+
+Examples:
+
+Import `matrix-style.html` and include **matrix-style** in the style of an element's definition.
+
+```html
+<dom-module id="awesome-lattice">
+    <template>
+        <style include="matrix-style">
+        </style>
+    </template>
+
+    <slot></slot>
+</dom-module>
+```
+
+Then define the style details of your layout via **custom properties**.
+
+```css
+:host {
+    --matrix-columns: 5;
+    --matrix-gutter: 3px;
+    --matrix-item-height: 30px;
+}
+```
+
+Finally use you `<awesome-lattice>` directly into the light DOM.
+
+```html
+<awesome-lattice>
+    <div>Awesome</div>
+    <div>Wonderful</div>
+    <div>Beautiful</div>
+</awesome-lattice>
+```
+
+### Expansible items
+
+In many cases, it's useful to expand an item more than 1 column.
+
+We call such type of items **wide items**.
+
+To achieve this type of layout, you can specify within the style of your custom component the number of columns the such items should expand to by setting the custom property `--matrix-wide-item-columns`.
+
+```css
+:host {
+  --matrix-wide-item-columns: 3;
+}
+```
+
+To indicate which item should expand, apply the **CSS mixin** `--matrix-wide-item` to a rule with a selector to the item.
+
+```css
+:host ::slotted(.wide) {
+  @apply(--matrix-wide-item);
+}
+```
+
+This way you can also combine the expansibility of items with responsive breakpoints.
+
+Otherwise simply use the provided **attribute** - i.e., `wide` - on the items in the light DOM.
+
+```html
+<awesome-lattice>
+    <div wide>Extensible</div>
+    <div>Awesome</div>
+    <div>Wonderful</div>
+    <div>Beautiful</div>
+    <div>Hassle Free</div>
+    <div wide>Layout</div>
+    <div>Grid</div>
+</awesome-lattice>
+```
+
+### Aspect ratio
+
+Sometimes you want that your items maintain a given aspect ratio.
+
+Also in this case we provide two ways to accomplish this result.
+
+In any case we first need to setup the aspect ratio.
+
+```css
+:host {
+  --matrix-item-aspect-ratio: calc(16 / 9);
+}
+```
+
+Then we can set the `has-aspect-ratio` **attribute** on our layout element.
+
+```
+<awesome-lattice has-aspect-ratio>
+    ...
+</awesome-lattice>
+```
+
+Otherwise we can apply the **CSS mixin** - i.e., `--matrix-aspect-ratio-item` - to items we want to keep the choosen aspect ratio.
+
+Or also use the `aspect-ratio` attribute on any item we want to respect the defined aspect ratio.
+
+So this approaches are more flexible since you can choose to what items apply it or not.
+
+### Styling
+
+Custom property                             | Description                                                | Default
+--------------------------------------------|------------------------------------------------------------|------------------
+`--matrix-columns`                          | The number of columns per row.                             | 1
+`--matrix-gutter`                           | The space between two items.                               | 0px
+`--matrix-item-height`                      | The height of the items.                                   | auto
+`--matrix-item-aspect-ratio`                | The aspect ratio of the items.                             | 1
+`--matrix-wide-item-columns`                | The number of columns a wide item should expand to.        | 1
+
+Mixin                                       | Description
+--------------------------------------------|--------------------------------------------------------------------------
+`--matrix-layout`                           | ...
+`--matrix-item`                             | The styles to apply to each item.
+`--matrix-wide-item`                        | The styles to apply to wide items (includes `--matrix-item`).
+`--matrix-aspect-ratio-item`                | The styles to apply to items with aspect ratio (includes `--matrix-item`).
+`--matrix-without-space-around`             | ...
+
+@pseudoElement matrix-style
+@demo demo/index.html
+-->
+
+<dom-module id="matrix-style">
+
+    <template>
+
+        <style>
+
+            :host {
+                --matrix-item: {
+                    display: inline-block;
+
+                    /**
+                     * Workaround for IE 10
+                     */
+                    -ms-flex: 1 1 100%;
+                    -webkit-flex: 1;
+                    flex: 1;
+
+                    /**
+                     * The width for an item is: (100% - sub pixel adjustment - gutter * columns) / columns
+                     */
+                    -webkit-flex-basis: calc((100% - 0.1px - (var(--matrix-gutter, 0px) * var(--matrix-columns, 1))) / var(--matrix-columns, 1));
+                    flex-basis: calc((100% - 0.1px - (var(--matrix-gutter, 0px) * var(--matrix-columns, 1))) / var(--matrix-columns, 1));
+                    max-width: calc((100% - 0.1px - (var(--matrix-gutter, 0px) * var(--matrix-columns, 1))) / var(--matrix-columns, 1));
+
+                    margin-bottom: var(--matrix-gutter, 0px);
+                    margin-right: var(--matrix-gutter, 0px);
+
+                    height: var(--matrix-item-height, auto);
+
+                    box-sizing: border-box;
+                };
+
+                /**
+                 * The width for the wide (ie., expansible) item is:
+                 * ((100% - sub pixel adjustment) / columns * item columns - gutter
+                 *
+                 * - sub pixel adjustment 	=> 0.1px (required for IE 11)
+                 * - gutter			        => var(--matrix-gutter)
+                 * - columns			        => var(--matrix-columns)
+                 * - item column		        => var(--matrix-wide-item-columns)
+                 */
+                --matrix-wide-item: {
+                    @apply --matrix-item;
+
+                    -webkit-flex-basis: calc((100% - 0.1px) / var(--matrix-columns, 1) * var(--matrix-wide-item-columns, 1) - var(--matrix-gutter, 0px)) !important;
+                    flex-basis: calc((100% - 0.1px) / var(--matrix-columns, 1) * var(--matrix-wide-item-columns, 1) - var(--matrix-gutter, 0px)) !important;
+                    max-width: calc((100% - 0.1px) / var(--matrix-columns, 1) * var(--matrix-wide-item-columns, 1) - var(--matrix-gutter, 0px)) !important;
+                };
+
+                --matrix-aspect-ratio-item: {
+                    @apply --matrix-item;
+
+                    position: relative;
+                    overflow: hidden;
+
+                    padding-bottom: calc((100% - 0.1px - (var(--matrix-gutter, 0px) * var(--matrix-columns, 1))) / var(--matrix-columns, 1) / var(--matrix-item-aspect-ratio, 1));
+
+                    /**
+                     * We do not want the content height because the padding (bottom) already gets it.
+                     */
+                    height: 0;
+                };
+
+                --matrix-layout: {
+                    /**
+                     * We do not apply flex mixins to avoid the dependency.
+                     */
+                    display: -ms-flexbox;
+                    display: -webkit-flex;
+                    display: flex;
+
+                    -ms-flex-wrap: wrap;
+                    -webkit-flex-wrap: wrap;
+                    flex-wrap: wrap;
+
+                    padding-top: var(--matrix-gutter, 0px);
+                    padding-left: var(--matrix-gutter, 0px);
+
+                    box-sizing: border-box;
+                };
+
+                /**
+                 * Mixin to remove the space around the layout.
+                 */
+                --matrix-without-space-around: {
+                    padding: 0;
+                    margin-right: calc(-1 * var(--matrix-gutter));
+                    margin-bottom: calc(-1 * var(--matrix-gutter));
+                };
+
+                display: block;
+            }
+
+            :host ::slotted(*) {
+                @apply --matrix-item;
+            }
+
+            :host ::slotted([wide]) {
+                @apply --matrix-wide-item;
+            }
+
+            :host ::slotted([aspect-ratio]) {
+                @apply --matrix-aspect-ratio-item;
+            }
+
+            :host-context([has-aspect-ratio]) ::slotted(*) {
+                @apply --matrix-aspect-ratio-item;
+            }
+
+        </style>
+
+    </template>
+
+</dom-module>
