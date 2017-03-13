@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+
+    <title>Creating Your Own Custom Element Layout Using Matrix Layout</title>
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../../matrix-style/matrix-layout.html">
+
+    <style>
+        body {
+            margin: 16px;
+            background-color: #ddd;
+        }
+
+        my-element {
+            border: 1px solid #000;
+        }
+
+        dom-repeat {
+            display: none;
+        }
+    </style>
+</head>
+
+<body unresolved>
+
+    <h4>Define a custom layout using the matrix layout element</h4>
+    <demo-snippet>
+        <template>
+
+            <dom-module id="my-element">
+                <template>
+                    <style>
+                        :host {
+                            --matrix-columns: 3;
+                            --matrix-gutter: 10px;
+                            --matrix-wide-item-columns: 2;
+                            --matrix-item-height: 20vw;
+
+                            @apply --layout-block;
+                        }
+
+                        :host ::slotted(*) {
+                            background-color: lightgrey;
+                        }
+
+                        @media (max-width: 799px) {
+                            :host {
+                                --matrix-columns: 2;
+                                --matrix-gutter: 5px;
+                                --matrix-wide-item-columns: 2;
+                            }
+
+                            :host ::slotted([hide-on-mobile]) {
+                                display: none;
+                            }
+                        }
+                    </style>
+                    <!-- This has matrix-layout mixin -->
+                    <matrix-layout>
+                        <slot></slot>
+                    </matrix-layout>
+                </template>
+                <script>
+                    class MyElement extends Polymer.Element {
+                        static get is() {
+                            return "my-element"
+                        }
+                    }
+                    customElements.define(MyElement.is, MyElement)
+                </script>
+            </dom-module>
+
+        </template>
+    </demo-snippet>
+
+    <h4>Observe me changing when you resize your display</h4>
+    <demo-snippet>
+        <template>
+
+            <my-element>
+                <li>One</li>
+                <li>Two</li>
+                <li>Three</li>
+                <li>Four</li>
+                <li>Five</li>
+                <li>Six</li>
+                <li>Seven</li>
+                <li>Eight</li>
+                <li hide-on-mobile>Nine</li>
+            </my-element>
+
+        </template>
+    </demo-snippet>
+
+</body>
+
+</html>

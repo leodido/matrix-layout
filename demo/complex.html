@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+
+    <title>Creating Your Own Custom Element Layout Using Matrix Style</title>
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../matrix-layout.html">
+
+    <style>
+        body {
+            margin: 16px;
+            background-color: #ddd;
+        }
+
+        complex-layout {
+            border: 1px solid #000;
+        }
+
+        dom-repeat {
+            display: none;
+        }
+    </style>
+</head>
+
+<body unresolved>
+
+    <h4>Define your own matrix style custom element</h4>
+    <demo-snippet>
+        <template>
+
+            <dom-module id="complex-layout">
+                <template>
+                    <style include="matrix-style">
+                        :host {
+                            --matrix-columns: 2;
+                            --matrix-gutter: 16px;
+                            --matrix-item-height: 25vw;
+                            --matrix-wide-item-columns: 2;
+                            --matrix-item-aspect-ratio: 1; /* 1:1 */
+
+                            @apply --layout-block;
+                        }
+
+                        :host ::slotted(*),
+                        li {
+                            background-color: lightgrey;
+                        }
+
+                        .one {
+                            @apply --matrix-wide-item;
+                        }
+
+                        .two {
+                            @apply --matrix-aspect-ratio-item;
+                        }
+
+                        .three {
+                            @apply --matrix-wide-item;
+                        }
+
+                        .four {
+                            @apply --matrix-aspect-ratio-item;
+                        }
+                    </style>
+                    <!-- This has matrix-layout mixin -->
+                    <matrix-layout>
+                        <li class="one">Internal One (WIDE)</li>
+                        <li class="two">Internal Two (ASPECT RATIO 1:1)</li>
+                        <slot></slot>
+                        <li class="three">Internal Three (WIDE)</li>
+                        <li class="four">Internal Four (ASPECT RATIO 1:1)</li>
+                    </matrix-layout>
+                </template>
+                <script>
+                    class ComplexLayout extends Polymer.Element {
+                        static get is() {
+                            return "complex-layout"
+                        }
+                    }
+                    customElements.define(ComplexLayout.is, ComplexLayout)
+                </script>
+            </dom-module>
+
+        </template>
+    </demo-snippet>
+
+    <h4>Use your own complex layout</h4>
+    <demo-snippet>
+        <template>
+
+            <complex-layout>
+                <dom-repeat items="[1, 2, 3, 4]">
+                    <template>
+
+                        <li>[[item]]</li>
+
+                    </template>
+                </dom-repeat>
+            </complex-layout>
+
+        </template>
+    </demo-snippet>
+
+    <h4>Use your own complex layout in frameless mode</h4>
+    <demo-snippet>
+        <template>
+
+            <complex-layout frameless>
+                <dom-repeat items="[1, 2, 3, 4]">
+                    <template>
+
+                        <li>[[item]]</li>
+
+                    </template>
+                </dom-repeat>
+            </complex-layout>
+
+        </template>
+    </demo-snippet>
+
+
+</body>
+
+</html>
