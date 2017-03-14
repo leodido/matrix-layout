@@ -120,7 +120,7 @@ In any case we first need to setup the aspect ratio.
 
 Then we can set the `has-aspect-ratio` **attribute** on our layout element.
 
-```
+```html
 <awesome-lattice has-aspect-ratio>
     ...
 </awesome-lattice>
