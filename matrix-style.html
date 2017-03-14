@@ -26,13 +26,14 @@ Import `matrix-style.html` and include **matrix-style** in the style of an eleme
 </dom-module>
 ```
 
-Then define the style details of your layout via **custom properties**.
+Then define the style details of your layout via **custom properties** and **mixin**.
 
 ```css
 :host {
     --matrix-columns: 5;
     --matrix-gutter: 3px;
     --matrix-item-height: 30px;
+    @apply --matrix-layout;
 }
 ```
 
