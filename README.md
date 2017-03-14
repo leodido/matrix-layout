@@ -22,7 +22,11 @@ So, you can use any element you want as child item.
 
 ## Installation
 
-_TBD_.
+You can install in many ways ...
+
+One way is to execute `bower install leodido/matrix-layout --save` in your shell.
+
+Or if you prefer `yarn add leodido/matrix-layout --save` ...
 
 ## Usage
 
