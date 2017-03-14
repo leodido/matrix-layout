@@ -1,7 +1,7 @@
 # \<matrix-layout>
 
 [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg?style=flat-square)](https://www.webcomponents.org/element/leodido/matrix-layout)
- [![NPM](https://img.shields.io/npm/v/matrix-layout.svg?style=flat-square)](https://www.npmjs.com/package/matrix-layout) [![Bower](https://img.shields.io/bower/v/matrix-layout.svg?style=flat-square)](http://github.com/leodido/matrix-layout/releases/latest) [![License](https://img.shields.io/badge/license-apache--2.0-yellowgreen.svg?style=flat-square)](http://opensource.org/licenses/Apache-2.0)
+ [![NPM](https://img.shields.io/npm/v/matrix-layout.svg?style=flat-square)](https://www.npmjs.com/package/matrix-layout) [![License](https://img.shields.io/badge/license-apache--2.0-yellowgreen.svg?style=flat-square)](http://opensource.org/licenses/Apache-2.0)
 
 This package contains two main components:
 
@@ -22,9 +22,7 @@ So, you can use any element you want as child item.
 
 ## Installation
 
-You can install in many ways ...
-
-One way is to execute `bower install leodido/matrix-layout --save` in your shell.
+One way to install it is executing `bower install leodido/matrix-layout --save` in your shell.
 
 Or if you prefer `yarn add leodido/matrix-layout --save` ...
 
@@ -120,7 +118,7 @@ In any case we first need to setup the aspect ratio.
 
 Then we can set the `has-aspect-ratio` **attribute** on our layout element.
 
-```
+```html
 <awesome-lattice has-aspect-ratio>
     ...
 </awesome-lattice>

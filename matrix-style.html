@@ -28,7 +28,7 @@ Import `matrix-style.html` and include **matrix-style** in the style of an eleme
 
 Then define the style details of your layout via **custom properties** and **mixin**.
 
-```css
+```
 :host {
     --matrix-columns: 5;
     --matrix-gutter: 3px;
@@ -55,7 +55,7 @@ We call such type of items **wide items**.
 
 To achieve this type of layout, you can specify within the style of your custom component the number of columns the such items should expand to by setting the custom property `--matrix-wide-item-columns`.
 
-```css
+```
 :host {
   --matrix-wide-item-columns: 3;
 }
@@ -63,7 +63,7 @@ To achieve this type of layout, you can specify within the style of your custom 
 
 To indicate which item should expand, apply the **CSS mixin** `--matrix-wide-item` to a rule with a selector to the item.
 
-```css
+```
 :host ::slotted(.wide) {
   @apply(--matrix-wide-item);
 }
@@ -93,7 +93,7 @@ Also in this case we provide two ways to accomplish this result.
 
 In any case we first need to setup the aspect ratio.
 
-```css
+```
 :host {
   --matrix-item-aspect-ratio: calc(16 / 9);
 }
@@ -101,7 +101,7 @@ In any case we first need to setup the aspect ratio.
 
 Then we can set the `has-aspect-ratio` **attribute** on our layout element.
 
-```
+```html
 <awesome-lattice has-aspect-ratio>
     ...
 </awesome-lattice>
@@ -133,6 +133,8 @@ Mixin                                       | Description
 
 @pseudoElement matrix-style
 @demo demo/index.html
+@demo demo/using-matrix-style.html
+@demo demo/complex.html
 -->
 
 <dom-module id="matrix-style">
