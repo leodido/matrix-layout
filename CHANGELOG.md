@@ -1,3 +1,13 @@
+<a name="0.9.2"></a>
+## [0.9.2](https://github.com/leodido/matrix-layout/compare/v0.9.1...v0.9.2) (2017-03-14)
+
+
+### Docs
+
+* Tagging CSS snippets as text ([86f2563ba4696daa42ec096c5fe3b0aa33204495](https://github.com/leodido/matrix-layout/commit/86f2563ba4696daa42ec096c5fe3b0aa33204495))
+
+
+
 <a name="0.9.1"></a>
 ## [0.9.1](https://github.com/leodido/matrix-layout/compare/v0.9.0...v0.9.1) (2017-03-14)
 

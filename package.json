@@ -1,6 +1,6 @@
 {
   "name": "matrix-layout",
-  "version": "0.9.1",
+  "version": "0.9.2",
   "description": "A custom element and a style useful to create responsive and fluid grid layouts",
   "main": "matrix-layout.html",
   "license": "Apache-2.0",
