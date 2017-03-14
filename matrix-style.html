@@ -1,7 +1,7 @@
 <link rel="import" href="../polymer/polymer-element.html">
 
 <!--
-This element is an helper style useful for creating responsive, fluid grid layout elements using CSS **custom properties** and **mixins**.
+This is an helper style useful for creating responsive, fluid grid layout elements using CSS **custom properties** and **mixins**.
 
 Because custom properties can be defined inside a `@media` rule, you can customize the matrix layout for different **responsive breakpoints**.
 
@@ -28,7 +28,7 @@ Import `matrix-style.html` and include **matrix-style** in the style of an eleme
 
 Then define the style details of your layout via **custom properties** and **mixin**.
 
-```
+```text
 :host {
     --matrix-columns: 5;
     --matrix-gutter: 3px;
@@ -55,7 +55,7 @@ We call such type of items **wide items**.
 
 To achieve this type of layout, you can specify within the style of your custom component the number of columns the such items should expand to by setting the custom property `--matrix-wide-item-columns`.
 
-```
+```text
 :host {
   --matrix-wide-item-columns: 3;
 }
@@ -63,7 +63,7 @@ To achieve this type of layout, you can specify within the style of your custom 
 
 To indicate which item should expand, apply the **CSS mixin** `--matrix-wide-item` to a rule with a selector to the item.
 
-```
+```text
 :host ::slotted(.wide) {
   @apply(--matrix-wide-item);
 }
@@ -93,7 +93,7 @@ Also in this case we provide two ways to accomplish this result.
 
 In any case we first need to setup the aspect ratio.
 
-```
+```text
 :host {
   --matrix-item-aspect-ratio: calc(16 / 9);
 }
@@ -131,8 +131,7 @@ Mixin                                       | Description
 `--matrix-aspect-ratio-item`                | The styles to apply to items with aspect ratio (includes `--matrix-item`).
 `--matrix-without-space-around`             | ...
 
-@pseudoElement matrix-style
-@demo demo/index.html
+@element matrix-style
 @demo demo/using-matrix-style.html
 @demo demo/complex.html
 -->
