@@ -1,3 +1,17 @@
+<a name="0.9.1"></a>
+## [0.9.1](https://github.com/leodido/matrix-layout/compare/v0.9.0...v0.9.1) (2017-03-14)
+
+
+### Docs
+
+* Annotations for demos ([fb683ca396636abdcdd607a8771b7d8fafc8aeeb](https://github.com/leodido/matrix-layout/commit/fb683ca396636abdcdd607a8771b7d8fafc8aeeb))
+
+### Update
+
+* Privatize bower JSON ([b4c0c91d330a579378c28470153e6ba697dcc64a](https://github.com/leodido/matrix-layout/commit/b4c0c91d330a579378c28470153e6ba697dcc64a))
+
+
+
 <a name="0.9.0"></a>
 # 0.9.0 (2017-03-14)
 
