@@ -1,3 +1,13 @@
+<a name="0.9.3"></a>
+## [0.9.3](https://github.com/leodido/matrix-layout/compare/v0.9.2...v0.9.3) (2017-03-14)
+
+
+### Docs
+
+* Demo entrypoint within documenting comments ([becc8d3ea92ac773afa14063546b7951f777006a](https://github.com/leodido/matrix-layout/commit/becc8d3ea92ac773afa14063546b7951f777006a))
+
+
+
 <a name="0.9.2"></a>
 ## [0.9.2](https://github.com/leodido/matrix-layout/compare/v0.9.1...v0.9.2) (2017-03-14)
 
