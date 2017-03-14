@@ -1,6 +1,7 @@
 # \<matrix-layout>
 
-[![NPM](https://img.shields.io/npm/v/matrix-layout.svg?style=flat-square)](https://www.npmjs.com/package/matrix-layout) [![Bower](https://img.shields.io/bower/v/matrix-layout.svg?style=flat-square)](http://github.com/leodido/matrix-layout/releases/latest) [![License](https://img.shields.io/badge/license-apache--2.0-yellowgreen.svg?style=flat-square)](http://opensource.org/licenses/Apache-2.0)
+[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg?style=flat-square)](https://www.webcomponents.org/element/leodido/matrix-layout)
+ [![NPM](https://img.shields.io/npm/v/matrix-layout.svg?style=flat-square)](https://www.npmjs.com/package/matrix-layout) [![Bower](https://img.shields.io/bower/v/matrix-layout.svg?style=flat-square)](http://github.com/leodido/matrix-layout/releases/latest) [![License](https://img.shields.io/badge/license-apache--2.0-yellowgreen.svg?style=flat-square)](http://opensource.org/licenses/Apache-2.0)
 
 This package contains two main components:
 
@@ -19,11 +20,11 @@ It does not impose any constraint on child nodes.
 
 So, you can use any element you want as child item.
 
-## Install
+## Installation
 
 _TBD_.
 
-## Examples
+## Usage
 
 Import `matrix-style.html` and include **matrix-style** in the style of an element's definition.
 
@@ -38,13 +39,14 @@ Import `matrix-style.html` and include **matrix-style** in the style of an eleme
 </dom-module>
 ```
 
-Then define the style details of your layout via **custom properties**.
+Then define the style details of your layout via **custom properties** and **mixin**.
 
 ```css
 :host {
     --matrix-columns: 5;
     --matrix-gutter: 3px;
     --matrix-item-height: 30px;
+    @apply --matrix-layout;
 }
 ```
 
@@ -126,7 +128,7 @@ Or also use the `aspect-ratio` attribute on any item we want to respect the defi
 
 So this approaches are more flexible since you can choose which items have to maintain the aspect ratio and which not.
 
-## Styling
+### Styling
 
 Custom property                             | Description                                                | Default
 --------------------------------------------|------------------------------------------------------------|------------------
