@@ -1,3 +1,14 @@
+<a name="0.9.4"></a>
+## [0.9.4](https://github.com/leodido/matrix-layout/compare/v0.9.3...v0.9.4) (2017-03-15)
+
+
+### Docs
+
+* Better explainations in README ([22bd6bf1f4f13059d25296dd3b2ee74d35d547ff](https://github.com/leodido/matrix-layout/commit/22bd6bf1f4f13059d25296dd3b2ee74d35d547ff))
+* General documentation ([deb694d3ede862a69587f796395f9e437c7de209](https://github.com/leodido/matrix-layout/commit/deb694d3ede862a69587f796395f9e437c7de209))
+
+
+
 <a name="0.9.3"></a>
 ## [0.9.3](https://github.com/leodido/matrix-layout/compare/v0.9.2...v0.9.3) (2017-03-14)
 
