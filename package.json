@@ -48,6 +48,8 @@
     "columns",
     "responsive",
     "fluid",
-    "custom element"
+    "custom element",
+    "webcomponents",
+    "v1"
   ]
 }
