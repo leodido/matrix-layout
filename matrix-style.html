@@ -15,37 +15,33 @@ Examples:
 
 Import `matrix-style.html` and include **matrix-style** in the style of an element's definition.
 
-```html
-<dom-module id="awesome-lattice">
-    <template>
-        <style include="matrix-style">
-        </style>
-    </template>
+    <dom-module id="awesome-lattice">
+        <template>
+            <style include="matrix-style">
+            </style>
+        </template>
 
-    <slot></slot>
-</dom-module>
-```
+        <slot></slot>
+    </dom-module>
 
 Then define the style details of your layout via **custom properties** and **mixin**.
 
-```text
-:host {
-    --matrix-columns: 5;
-    --matrix-gutter: 3px;
-    --matrix-item-height: 30px;
-    @apply --matrix-layout;
-}
-```
+
+    :host {
+        --matrix-columns: 5;
+        --matrix-gutter: 3px;
+        --matrix-item-height: 30px;
+        @apply --matrix-layout;
+    }
+
 
 Finally use you `<awesome-lattice>` directly into the light DOM.
 
-```html
-<awesome-lattice>
-    <div>Awesome</div>
-    <div>Wonderful</div>
-    <div>Beautiful</div>
-</awesome-lattice>
-```
+    <awesome-lattice>
+        <div>Awesome</div>
+        <div>Wonderful</div>
+        <div>Beautiful</div>
+    </awesome-lattice>
 
 ### Expansible items
 
@@ -55,35 +51,29 @@ We call such type of items **wide items**.
 
 To achieve this type of layout, you can specify within the style of your custom component the number of columns the such items should expand to by setting the custom property `--matrix-wide-item-columns`.
 
-```text
-:host {
-  --matrix-wide-item-columns: 3;
-}
-```
+    :host {
+        --matrix-wide-item-columns: 3;
+    }
 
 To indicate which item should expand, apply the **CSS mixin** `--matrix-wide-item` to a rule with a selector to the item.
 
-```text
-:host ::slotted(.wide) {
-  @apply(--matrix-wide-item);
-}
-```
+    :host ::slotted(.wide) {
+        @apply(--matrix-wide-item);
+    }
 
 This way you can also combine the expansibility of items with responsive breakpoints.
 
 Otherwise simply use the provided **attribute** - i.e., `wide` - on the items in the light DOM.
 
-```html
-<awesome-lattice>
-    <div wide>Extensible</div>
-    <div>Awesome</div>
-    <div>Wonderful</div>
-    <div>Beautiful</div>
-    <div>Hassle Free</div>
-    <div wide>Layout</div>
-    <div>Grid</div>
-</awesome-lattice>
-```
+    <awesome-lattice>
+        <div wide>Extensible</div>
+        <div>Awesome</div>
+        <div>Wonderful</div>
+        <div>Beautiful</div>
+        <div>Hassle Free</div>
+        <div wide>Layout</div>
+        <div>Grid</div>
+    </awesome-lattice>
 
 ### Aspect ratio
 
@@ -93,19 +83,13 @@ Also in this case we provide two ways to accomplish this result.
 
 In any case we first need to setup the aspect ratio.
 
-```text
-:host {
-  --matrix-item-aspect-ratio: calc(16 / 9);
-}
-```
+    :host {
+        --matrix-item-aspect-ratio: calc(16 / 9);
+    }
 
 Then we can set the `has-aspect-ratio` **attribute** on our layout element.
 
-```html
-<awesome-lattice has-aspect-ratio>
-    ...
-</awesome-lattice>
-```
+    <awesome-lattice has-aspect-ratio>...</awesome-lattice>
 
 Otherwise we can apply the **CSS mixin** - i.e., `--matrix-aspect-ratio-item` - to items we want to keep the choosen aspect ratio.
 
@@ -134,6 +118,8 @@ Mixin                                       | Description
 @element matrix-style
 @demo demo/index.html
 @demo demo/using-matrix-style.html
+@demo demo/using-matrix-layout.html
+@demo demo/responsiveness.html
 @demo demo/complex.html
 -->
 
