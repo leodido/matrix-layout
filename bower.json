@@ -1,6 +1,6 @@
 {
   "name": "matrix-layout",
-  "version": "0.9.4",
+  "version": "0.9.5",
   "description": "A custom element and a style useful to create responsive and fluid grid layouts",
   "private": false,
   "main": [

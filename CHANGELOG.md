@@ -1,3 +1,17 @@
+<a name="0.9.5"></a>
+## [0.9.5](https://github.com/leodido/matrix-layout/compare/v0.9.4...v0.9.5) (2017-03-23)
+
+
+### Update
+
+* Make the package publishable on the public bower registry ([22e7b7d3369cbcff24368e07894f54f257fc3426](https://github.com/leodido/matrix-layout/commit/22e7b7d3369cbcff24368e07894f54f257fc3426))
+
+### Upgrade
+
+* Allow ranges for dependencies ([a2accc306a2b1a45568599d35eae3b9d617e44c9](https://github.com/leodido/matrix-layout/commit/a2accc306a2b1a45568599d35eae3b9d617e44c9))
+
+
+
 <a name="0.9.4"></a>
 ## [0.9.4](https://github.com/leodido/matrix-layout/compare/v0.9.3...v0.9.4) (2017-03-15)
 
