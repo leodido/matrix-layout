@@ -27,7 +27,7 @@ See the [demo](/demo) directory to look at some implementations.
 
 One way to install it is executing `bower install leodido/matrix-layout --save` in your shell.
 
-Or if you prefer `yarn add leodido/matrix-layout --save`, since it is published on [npm](www.npmjs.com/package/matrix-layout) registry also.
+Or if you prefer `yarn add leodido/matrix-layout --save`, since it is published on [npm](https://www.npmjs.com/package/matrix-layout) registry also.
 
 ## Usage
 
